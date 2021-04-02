@@ -1,4 +1,126 @@
 <div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="header-wrapper">
+<span class="vibe-label">  VIBE</span>
+<ion-button class="logout-button" color="light" >Logout</ion-button>
+  </div>
+ 
+  <ion-slides #slider class='sliding-container' [options]="{onlyExternal: false}">
+
+    <ion-slide id="slide">
+       
+
+      <ion-card style="width: 95%; height: 17vh;">
+        <ion-card-header>
+          <ion-card-subtitle> </ion-card-subtitle>
+          <ion-card-title>Rate how sleepy you feel right now on the scale below.</ion-card-title>
+        </ion-card-header>  
+        <ion-card-content>      
+        </ion-card-content>
+      </ion-card>
+
+      <ion-list class='options-list'>
+        <ion-radio-group (ionChange)="selectionChange($event)" >
+          <ion-list-header>
+            <ion-label>
+              
+            </ion-label>
+          </ion-list-header>
+      
+          <ion-item>
+            <ion-label class='option-label'>Extremely Sleepy</ion-label>
+            <ion-radio value="1"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label class='option-label'>Sleepy, but no difficulty remaining awake</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label class='option-label'>Neither alert nor sleepy</ion-label>
+            <ion-radio value="3"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label class='option-label'>Alert</ion-label>
+            <ion-radio value="4"></ion-radio>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label class='option-label'>Extremeley Alert</ion-label>
+            <ion-radio value="5"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list> 
+
+           
+    </ion-slide>
+
+    <ion-slide  id="slide">
+
+      <ion-card style="width: 95%;    ">
+        <ion-card-header>
+          <ion-card-subtitle> </ion-card-subtitle>
+          <ion-card-title>What kept you from sleeping last night. Select as many as you like.</ion-card-title>
+        </ion-card-header>  
+        <ion-card-content>      
+        </ion-card-content>
+      </ion-card>
+     
+      <mat-chip-list
+      multiple
+      #tagList aria-label="tag selection" style="
+              overflow-y: scroll;
+              height: 98%;
+              width: 100%;
+              overflow-x: hidden;
+              align-items: center;
+              padding-left: 15px;
+            ">
+            <mat-chip *ngFor="let symptom of Symptoms" [selectable]="true" [removable]="false"
+              [selected]="symptom[1]" (click)="symptomSelected(symptom)" [removable]="false" style="width: 30%; font-size: 20px;height: 20%;">
+              <div class="symptom-chip-wrapper">
+                <span>
+                  {{ symptom[0] }}
+                </span>
+                
+              </div>
+            </mat-chip>
+          </mat-chip-list>
+      
+    </ion-slide>
+
+    <ion-slide *ngFor="let symptom of SelectedSymptoms"   id="slide"> 
+      <ion-card style="width: 95%; height: 40vh;
+      max-height: 95%; text-align: -webkit-center;">
+        <ion-card-header>
+          <ion-card-title>You selected.</ion-card-title>
+        </ion-card-header>  
+        <ion-card-content class='selection-wrapper'>  
+          {{symptom}}    
+        </ion-card-content>
+        <div style='    margin-top: 1%;
+        font-size: 20px;
+        font-weight: 500;'> Over the past two week, how much were you bothered by these?</div>
+      </ion-card>
+      <div class="custom-slider">
+
+        <ng5-slider   [(value)]="value" [options]="options"></ng5-slider>
+
+      </div>
+
+    </ion-slide>
+   
+
+  </ion-slides>
+
+
+  <div class='navigation-tab'>
+    
+
+<ion-button (click)='movePrevious(slider)'  [disabled]='currentIndex==1' class="nav-button" color="light" ><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+<div class='position-label'>   {{currentIndex}} of {{totalSteps}}  </div>
+<ion-button (click)='moveNext(slider)' [disabled]='currentIndex==totalSteps || selectedAnswer===undefined' class="nav-button" color="light" ><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+  </div>
+  
 </div>

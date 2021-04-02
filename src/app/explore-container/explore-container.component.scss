@@ -1,13 +1,127 @@
 #container {
   text-align: center;
+  height: 96vh;
+  margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.logout-button{
+  font-size: 22px;
+  width: 35%;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  height: 6vh;
+}
+.slider{
+  width: 98%;
+} 
+.options-list{
+  height: 80%;
+    width: 95%;
+}
+.option-label{
+  font-size: 30px;
+    line-height: 2;
+    white-space: pre-wrap;
 }
 
+.navigation-tab{
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+}
+.nav-button{
+  width: 15vw;
+    height: 7vh;
+    font-size: 25px;
+    font-weight: 900;
+}
+.position-label{
+  background-color: #004f73;;
+  width: 25vw;
+  height: 6.5vh;
+  font-size: 30px;
+    font-weight: 900;
+    color: var(--ion-color-dark);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.sliding-container{
+  display:flex;
+  flex-direction: column;
+  height: 80%;
+  width: 98%;
+
+}
+
+.selection-wrapper{
+  border:  2px solid var(--ion-color-primary-shade);
+  border-radius: 5px;
+  min-width: 50%;
+  width: auto;
+
+  height: auto;
+  font-size: 30px;
+  font-weight: 900;
+  color:    var(--ion-color-primary);
+}
+#slide{
+  width: 100%  !important;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+}
+
+.custom-slider{
+  height: 98%;
+  text-align: right;
+    margin-right: 20%;
+}
+
+.custom-slider .ng5-slider .ng5-slider-tick {
+  width: 6px;
+  height: 6px;
+  border-radius: 5px;
+  top: -1px;
+  left: 1px;
+  font-size: 30px;
+  
+}
+
+
+.custom-slider  .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+  background: #3fff00;
+}
+
+ 
+
+.chip-label{
+  font-size: 25px;
+}
+
+ 
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+  font-weight: 900;
+  font-size: 25px;
+ background-color: var(--ion-color-primary-shade);
+  transition: background 0.25s ease-in;
+   
+}
+.mat-chip-list-wrapper {
+  padding: 10px 0 0 15px;
+}
+
+.symptom-chip-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 99%;
+  place-content: space-around;
+}
 #container strong {
   font-size: 20px;
   line-height: 26px;
@@ -24,4 +138,20 @@
 
 #container a {
   text-decoration: none;
+}
+
+.header-wrapper{
+  display: flex;
+  flex-direction: row;
+  place-content: space-between;
+  width: 80%;
+
+  align-items: center;
+  
+}
+
+.vibe-label{
+  color: var(--ion-color-secondary);
+  font-size: 35px;
+  font-weight: 900;
 }
